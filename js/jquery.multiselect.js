@@ -47,6 +47,16 @@ $.fn.multiselect = function(options){
 
 		self.elements.add.on('click', self.actions.list.toggle);
 
+		//Collapse multiselect if click detected elsewhere
+		$(document).on('click', self.actions.documentClick);
+		self.on('click', self.actions.selfClick);
+
+		//Don't scroll window if scrollPane on the bottom position
+		self.hover(
+			self.actions.selfHover,
+			self.actions.selfUnHover
+		);
+
 		//some hooks
 		self.actions.list.close();
 		self.elements.list.width(self.width());
@@ -66,6 +76,7 @@ $.fn.multiselect = function(options){
 				self.elements.list.toggleClass('active');
 			}
 		},
+
 		status:{
 			empty: function(){
 				self.addClass('empty').removeClass('activated');
@@ -74,6 +85,28 @@ $.fn.multiselect = function(options){
 				self.addClass('activated').removeClass('empty');
 			}
 		},
+
+		//Collapse multiselect if click detected elsewhere
+		documentClick: function(){
+			var el = $(this);
+			self.actions.list.close();
+		},
+		selfClick: function(e){
+			e.stopPropagation();
+		},
+		
+		//Don't scroll window if scrollPane on the bottom position
+		selfHover: function(){
+			if(self.debug) console.log('Hover');
+			$(window).on('mousewheel', function(e){
+				e.preventDefault();
+			});
+		},
+		selfUnHover: function(){
+			if(self.debug) console.log('UnHover');
+			$(window).off('mousewheel');
+		},
+
 		inputChange : function(){
 			var el = $(this);
 			
