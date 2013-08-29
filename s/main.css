@@ -273,10 +273,11 @@ select.empty,
 /*group multiselect*/
 .b-select.multi-select.group{}
 .b-select.multi-select.group .scroll{}
+.b-select.multi-select.group .parent div{font: bold 13px Arial, Tahoma sans-serif; color:#000; }
 .b-select.multi-select.group .parent span{font-weight: bold;}
 .b-select.multi-select.group .group-wrapper{}
 .b-select.multi-select.group .group-wrapper label{padding: 3px 8px 3px 16px}
-.b-select.multi-select.group .group-wrapper label.parent{padding: 4px 8px}
+.b-select.multi-select.group .group-wrapper .parent{padding: 4px 8px}
 /*end group multiselect*/
 
 
@@ -1105,6 +1106,9 @@ input[type=checkbox]:not(.default)+span:before{
 }
 
 /* ######################################################## */
+.b-search-results{
+	margin: 22px 0 0 0;
+}
 
 .b-search-results .b-res-head {
 	margin-bottom: 15px;

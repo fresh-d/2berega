@@ -262,7 +262,7 @@ $(function() {
 	$('[data-multi-select]').each(function(){
 		var el = $(this);
 
-		el.find('[data-scroll]').jScrollPane();
+		//el.find('[data-scroll]').jScrollPane();
 		el.multiselect({/*debug: true*/});
 	});
 
@@ -270,12 +270,11 @@ $(function() {
 	$('[data-group-multi-select]').each(function(){
 		var el = $(this);
 
-		el.find('[data-scroll]').jScrollPane();
+		//el.find('[data-scroll]').jScrollPane();
 		el.groupmultiselect({debug: true});
 	});
 
 
 	//ScrollPane must be initialize
 	$("[data-extended-params]").hide();
-
 });
