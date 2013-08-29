@@ -266,6 +266,7 @@
 
 					verticalBar = container.find('>.jspVerticalBar');
 					verticalTrack = verticalBar.find('>.jspTrack');
+
 					verticalDrag = verticalTrack.find('>.jspDrag');
 
 					if (settings.showArrows) {

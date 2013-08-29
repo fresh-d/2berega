@@ -14,7 +14,8 @@ $.fn.multiselect = function(options){
 		val: {},
 		add:{},
 		apply: {},
-		clear: {}
+		clear: {},
+		scroll: {}
 	};
 
 	self.store = {
@@ -58,8 +59,32 @@ $.fn.multiselect = function(options){
 		);
 
 		//some hooks
+		
+		var	i_width=self.width(),
+				i_height = 0,
+				i_scroll_width = self.elements.list.width()
+				;
+		self.elements.inputs.each(function(){
+			var	el = $(this),
+					cur_width = $(this).next('span').width();
+
+			if(el.parents('[data-group-wrapper]').length > 0){
+				cur_width += 64;
+			}
+
+			if(cur_width > i_width){
+				i_width=cur_width;
+			}
+		});
+
+		//run scrollpane
+		self.elements.scroll.jScrollPane();
+
+		//apply width to container
+		self.elements.list.width(i_width);
+
+		//close list of multiselect
 		self.actions.list.close();
-		self.elements.list.width(self.width());
 
 		return self;
 	}
@@ -120,6 +145,7 @@ $.fn.multiselect = function(options){
 			//Check default value in data-val holder
 			if($.isEmptyObject(self.store.values)){
 				self.elements.val.text(self.elements.val.attr('data-default'));
+				self.actions.status.empty();
 			}
 
 			if(self.debug) console.log(self.store.values);
