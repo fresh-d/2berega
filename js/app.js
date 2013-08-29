@@ -261,17 +261,13 @@ $(function() {
 	/*multiselect*/
 	$('[data-multi-select]').each(function(){
 		var el = $(this);
-
-		//el.find('[data-scroll]').jScrollPane();
 		el.multiselect({/*debug: true*/});
 	});
 
 	/*group-multiselect*/
 	$('[data-group-multi-select]').each(function(){
 		var el = $(this);
-
-		//el.find('[data-scroll]').jScrollPane();
-		el.groupmultiselect({debug: true});
+		el.groupmultiselect({/*debug: true*/});
 	});
 
 
