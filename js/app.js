@@ -66,7 +66,8 @@ $(function() {
 		$(".b-search-form select").change();
 
 	});
-	
+
+
 	$("[data-extended-search-link]").click(function(){
 		$(this).toggleClass("extended");
 		$("[data-extended-params]").toggle();
@@ -240,6 +241,32 @@ $(function() {
 	
 
 	// =================================================================
-	
-	
+
+
+	/*Table overflow cells*/
+	var table = $("[data-table_overflow]");
+	var tr = table.find('tr:not(:eq(0))');
+
+	table.addClass('b-gradient_overflow');
+	tr.each(function(){
+		var td  = $(this).find('td:eq(5), td:eq(7), td:eq(8)');
+		td.each(function(){
+			if($(this).find('div').width() >= 74){
+				$(this).addClass('overflow');
+			}
+		});
+	});
+
+	/*multiselect*/
+	$('[data-multi-select]').each(function(){
+		var el = $(this);
+
+		el.find('[data-scroll]').jScrollPane();
+		el.multiselect({/*debug: true*/});
+	});
+
+
+	//ScrollPane must be initialize
+	$("[data-extended-params]").hide();
+
 });

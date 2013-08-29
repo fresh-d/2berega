@@ -52,7 +52,7 @@ html {
   bottom: 0;
 	left: 0;
 	right: 0;
-	
+
 }*/
 
 .b-content{
@@ -71,7 +71,7 @@ body {
 	background:#ffffff;
 	background: linear-gradient(to bottom, #ffffff, #f1f6f8) fixed;
 	min-width:970px;
-	
+
 }
 
 a {
@@ -222,8 +222,87 @@ select.empty,
 	position: relative;
 	height: 26px;
 	margin-top: -1px;
-	
+
 }
+
+/*multiselect mod*/
+.b-select.multi-select{
+	min-width: 148px;
+}
+.b-select.multi-select .select-list.active{display: block;}
+.b-select.multi-select .select-list{
+	background: #fff;
+	border: 1px solid #8d989f;
+	padding: 8px 0 0;
+	z-index: 10;
+	position: absolute;
+	top: 25px;
+	left: -1px;
+	display: none;
+}
+
+/*scrollPane mode*/
+.b-select.multi-select .select-list .scroll{
+	position: relative;
+	height: 200px;
+	padding: 0 10px 0 0;
+	overflow: hidden;
+}
+/*end scrollPane mode*/
+
+.b-select.multi-select .select-list label{
+	display: block;
+	padding: 3px 8px;
+}
+.b-select.multi-select .select-list label:hover{
+	background:#ecf2f4;
+}
+
+.b-select.multi-select .b-multiselect-toolbar{margin: 8px 0 0 0;}
+.b-multiselect-toolbar{
+	font: bold 10px Arial, Tahoma sans-serif;
+	background: #e7f3fa;
+	padding: 8px;
+	border-top: 1px solid #e0ebef;
+	overflow: hidden;
+}
+.b-multiselect-toolbar .toolbar-button{display: block; cursor: pointer;}
+.b-multiselect-toolbar .apply{color: #006699;  float: left;}
+.b-multiselect-toolbar .clear{color: #797979; float: right;}
+/* end multiselect mod*/
+
+/*checkbox*/
+.b-select.multi-select label input[type=checkbox]{
+	opacity: 0;
+}
+
+.b-select.multi-select label input[type=checkbox]+span{
+	color: #000;
+	font: 13px Arial, Tahoma, sans-serif;
+	padding: 0 0 0 8px;
+	position: relative;
+}
+
+.b-select.multi-select label input[type=checkbox]+span:before{
+	content: '';
+	position: absolute;
+	width: 16px;
+	height: 16px;
+	background: url(../i/sprite.png) no-repeat -622px -72px;
+	border: none;
+	box-shadow: 0 0 0 transparent;
+}
+
+.b-select.multi-select label input[type=checkbox]:checked+span:before{
+	content: '';
+	position: absolute;
+	width: 16px;
+	height: 16px;
+	background: url(../i/sprite.png) no-repeat -644px -72px;
+	border: none;
+	box-shadow: 0 0 0 transparent;
+}
+/*end checkbox*/
 
 .b-radio-box li:first-child{
 	border-radius:1px 0 0 1px;
@@ -662,7 +741,7 @@ input[type=checkbox]:not(.default)+span:before{
 
 
 .b-search-form {
-	margin-top: 20px;
+	margin: 20px 0 -40px 0;
 }
 
 .b-search-form:after {
@@ -933,7 +1012,7 @@ input[type=checkbox]:not(.default)+span:before{
 }
 
 .b-search-form .extended-params{
-	display: none;
+/*	display: none;*/
 	min-width: 100px;
 }
 
@@ -1654,6 +1733,109 @@ input[type=checkbox]:not(.default)+span:before{
 }
 
 
+/*#modificators#*/
+table.b-gradient_overflow{}
+table.b-gradient_overflow td.overflow{
+	max-width: 56px;
+	position: relative;
+}
+table.b-gradient_overflow .overflow>div{
+	overflow: hidden;
+	position: relative;
+}
+
+table.b-gradient_overflow .overflow>div:hover{
+	position: absolute;
+	background: #fff !important;
+	padding: 2px 7px;
+	top: 0;
+	left: 0;
+	z-index:2;
+	cursor: default;
+
+		border-top: 1px solid #e1e9ee;
+	border-bottom: 1px solid #e1e9ee;
+}
+
+table.b-gradient_overflow tr:nth-child(2n-1) .overflow>div:not(:hover):after{
+	width: 30px;
+	height: 33px;
+	content: ' ';
+	position: absolute;
+	right:0;
+	top: 0;
+
+	/*gradient*/
+
+	background-image: linear-gradient(left ,  rgba(255,255,255, 0) 21%, rgb(255,255,255) 100%);
+	background-image: -o-linear-gradient(left ,  rgba(255,255,255, 0) 21%, rgb(255,255,255) 100%);
+	background-image: -moz-linear-gradient(left ,  rgba(255,255,255, 0) 21%, rgb(255,255,255) 100%);
+	background-image: -webkit-linear-gradient(left ,  rgba(255,255,255, 0) 21%, rgb(255,255,255) 100%);
+	background-image: -ms-linear-gradient(left ,  rgba(255,255,255, 0) 21%, rgb(255,255,255) 100%);
+
+	background-image: -webkit-gradient(
+		linear,
+		left top,
+		right top,
+		color-stop(0.21,  rgba(255,255,255, 0)),
+		color-stop(1, rgb(255,255,255))
+	);
+}
+
+table.b-gradient_overflow tr:nth-child(2n) .overflow>div:not(:hover):after{
+	width: 30px;
+	height: 33px;
+	content: ' ';
+	position: absolute;
+	right:0;
+	top: 0;
+
+	/*gradient*/
+
+	background-image: linear-gradient(left ,  rgba(255,255,255, 0) 21%, rgb(247, 248, 249) 100%);
+	background-image: -o-linear-gradient(left ,  rgba(255,255,255, 0) 21%, rgb(247, 248, 249) 100%);
+	background-image: -moz-linear-gradient(left ,  rgba(255,255,255, 0) 21%, rgb(247, 248, 249) 100%);
+	background-image: -webkit-linear-gradient(left ,  rgba(255,255,255, 0) 21%, rgb(247, 248, 249) 100%);
+	background-image: -ms-linear-gradient(left ,  rgba(255,255,255, 0) 21%, rgb(247, 248, 249) 100%);
+
+	background-image: -webkit-gradient(
+		linear,
+		left top,
+		right top,
+		color-stop(0.21,  rgba(255,255,255, 0)),
+		color-stop(1, rgb(247, 248, 249))
+	);
+}
+
+table.b-gradient_overflow tr:hover .overflow:not(:hover)>div:after{
+	width: 30px;
+	height: 33px;
+	content: ' ';
+	position: absolute;
+	right:0;
+	top: 0px;
+
+	border-top: 1px solid #e1e9ee;
+	border-bottom: 1px solid #e1e9ee;
+
+	/*gradient*/
+
+	background-image: linear-gradient(left ,  rgba(255,255,255, 0) 21%, rgb(234, 244, 251) 100%);
+	background-image: -o-linear-gradient(left ,  rgba(255,255,255, 0) 21%, rgb(234, 244, 251) 100%);
+	background-image: -moz-linear-gradient(left ,  rgba(255,255,255, 0) 21%, rgb(234, 244, 251) 100%);
+	background-image: -webkit-linear-gradient(left ,  rgba(255,255,255, 0) 21%, rgb(234, 244, 251) 100%);
+	background-image: -ms-linear-gradient(left ,  rgba(255,255,255, 0) 21%, rgb(234, 244, 251) 100%);
+
+	background-image: -webkit-gradient(
+		linear,
+		left top,
+		right top,
+		color-stop(0.21,  rgba(255,255,255, 0)),
+		color-stop(1, rgb(234, 244, 251))
+	);
+}
+
+
 /* ######################################################## */
 
 .b-view-page .title .b-favorite{
@@ -2121,6 +2303,15 @@ input[type=checkbox]:not(.default)+span:before{
 	padding:20px 44px 25px 18px;
 }
 
+.b-search-controll {
+	float: right;
+	margin: 22px 0 0 0;
+}
+.b-search-controll.extended .ext{display:none;}
+.b-search-controll:not(.extended) .smp{display:none;}
+
+.b-realtors-list{margin: 20px 0 0px 0}
+
 .b-realtors-search .search-control .button-submit{
 	width: 150px;
 	display: inline-block;
@@ -2205,6 +2396,10 @@ input[type=checkbox]:not(.default)+span:before{
 	line-height: 23px;
 	margin-right: 40px;
 }
+
+ .b-contacts .phone{}
+ .b-contacts .email{}
+ .b-contacts .email a{font-size:13px;}
 
 .b-room-search .b-clear-favorites{
 	float: right;
