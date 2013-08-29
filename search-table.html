@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Два Берега</title>
+		<link rel="stylesheet" href="./s/main.css" type="text/css"/>
+		<script src="./js/jquery-1.10.2.min.js" type="text/javascript"></script>
+		<script src="./js/jquery.ui.touch-punch.min.js" type="text/javascript"></script>
+		<script src="./js/app.js" type="text/javascript"></script>
+	</head>
+	<body>
+		<div class="b-header">
+			<div class="top-nav">
+				<div class="main">
+					<div class="b-nav">
+						<ul>
+							<li class="active"><a>Недвижимость</a></li>
+							<li><a href="">Услуги</a></li>
+							<li><a href="">Риэлторы</a></li>
+							<li><a href="">Вакансии</a></li>
+							<li><a href="">Об агентстве</a></li>
+							<li><a href="">Контакты</a></li>
+						</ul>
+					</div>
+					<div class="b-user-nav">
+						<ul>
+							<li class="favorites"><a href="">Избранное: <b>2</b></a></li>
+							<li class="login-link"><a href="">Вход</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="top-info">
+				<div class="main">
+					<div class="b-logo">
+						<a href="index.html" class="logo"></a>
+					</div>
+					<div class="b-title">
+						<div class="name">Агентство недвижимости «Два Берега»</div>
+						<div class="slogan">Всегда на Вашей стороне</div>
+					</div>
+					<div class="b-contacts">
+						<div class="b-phone">+38 <b>(056) 7-355-355</b></div>
+						<div class="b-subnav">
+							<span>подать заявку:</span>
+							<ul>
+								<li><a href="">купить</a></li>
+								<li><a href="">продать</a></li>
+								<li><a href="">сдать</a></li>
+								<li><a href="">снять</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="b-content">
+			<div class="main">
+				<div class="b-search-form" data-tabs-container="salerent">
+					<div class="search-top">
+						<div class="tabs-list">
+							<ul data-tabs="salerent">
+								<li data-tab class="active"><a>Продажа</a></li>
+								<li data-tab><a>Аренда</a></li>
+							</ul>
+							<div class="b-region">
+								<label>Регион</label>
+								<span class="b-select activated" data-select>
+									<span class="value" data-select-val></span>
+									<select name="region">
+										<option data-sel-empty value="">любой</option>
+										<option value="">Днепропетровск</option>
+										<option value="">Днепропетровск</option>
+										<option value="">Запорожье</option>
+										<option value="">Киев</option>
+										<option value="">Крым</option>
+									</select>
+								</span>
+							</div>
+							<div class="b-id-search">
+								<label>Поиск по номеру</label>
+								<span class="search-input"><input type="text" class="input"/><input type="submit" class="submit" value=""/></span>
+							</div>
+						</div>
+					</div>
+					<div class="b-search-form-content">
+						<div class="in" data-tabs-content="salerent">
+							<div class="tab-content tab-sale" data-tab-content data-tabs-container="housetype">
+								<div class="b-search-nav">
+									<ul data-tabs="housetype">
+										<li class="active" data-tab><a>Квартиры</a></li>
+										<li data-tab><a>Дома</a></li>
+										<li data-tab><a>Коммерческая недвижимость</a></li>
+										<li data-tab><a>Земля</a></li>
+										<li data-tab><a>Гаражи</a></li>
+									</ul>
+								</div>
+								<div data-tabs-content="housetype">
+									<div class="house-type-tabs" data-tab-content>
+										<div class="search-params">
+											<div class="base-params">
+												<div class="field">
+													<label class="label">Район</label>
+													<span class="b-select activated" data-select>
+														<span class="value" data-select-val></span>
+														<select>
+															<option data-sel-empty value="">любой</option>
+															<option value="">Победа</option>
+															<option value="">Победа</option>
+														</select>
+													</span>
+												</div>
+												<div class="field">
+													<label class="label">Комнат</label>
+													<div class="b-radio-box b-radio-rooms" data-radio="drive">
+														<input type="hidden" name="radio-drive" data-radio-value="">
+														<ul>
+															<li data-radio-el="1">1</li>
+															<li data-radio-el="2" class="active">2</li>
+															<li data-radio-el="3">3</li>
+															<li data-radio-el="4">4+</li>
+														</ul>
+													</div>
+												</div>
+												<div class="field field-from-to">
+													<label class="label">Площадь, м2</label>
+													<input type="text" class="from" placeholder="от"> <span class="mdash">&mdash;</span> <input type="text" class="to" placeholder="до">
+												</div>
+												<div class="field">
+													<label class="label">Этаж</label>
+													<span class="b-select empty" data-select>
+														<span class="value" data-select-val></span>
+														<select>
+															<option value="" data-sel-empty>любой</option>
+															<option value="">1й</option>
+															<option value="">2й</option>
+														</select>
+													</span>
+												</div>
+												<div class="field field-from-to">
+													<label class="label">Цена, $</label>
+													<input type="text" class="from" placeholder="от"> <span class="mdash">&mdash;</span> <input type="text" class="to" placeholder="до">
+												</div>
+											</div>
+											
+											<div class="extended-params" data-extended-params>
+												<div class="field">
+													<label class="label">Массив</label>
+													<span class="b-select activated" data-select>
+														<span class="value" data-select-val></span>
+														<select>
+															<option data-sel-empty value="">любой</option>
+															<option value="">Победа</option>
+															<option value="">Победа</option>
+														</select>
+													</span>
+												</div>
+												<div class="field">
+													<label class="label">Комнат изолировано</label>
+													<div class="b-radio-box b-radio-rooms" data-radio="drive">
+														<input type="hidden" name="radio-drive" data-radio-value="">
+														<ul>
+															<li data-radio-el="1">1</li>
+															<li data-radio-el="2" class="active">2</li>
+															<li data-radio-el="3">3</li>
+															<li data-radio-el="4">4+</li>
+														</ul>
+													</div>
+												</div>
+												<div class="field field-half">
+													<label class="label">Жилая, м2</label>
+													<input type="text" class="from" placeholder="от">
+												</div>
+												<div class="field field-half field-half-sec">
+													<label class="label">Кухня, м2</label>
+													<input type="text" class="to" placeholder="до">
+												</div>
+												<div class="field field-from-to">
+													<label class="label">Этаж</label>
+													<input type="text" class="from" placeholder="от"> <span class="mdash">&mdash;</span> <input type="text" class="to" placeholder="до">
+												</div>
+												<div class="field field-from-to">
+													<label class="label">Цена, $/м<sup>2</sup></label>
+													<input type="text" class="from" placeholder="от"> <span class="mdash">&mdash;</span> <input type="text" class="to" placeholder="до">
+												</div>
+												<div class="field">
+													<label class="label">Риэлтор</label>
+													<span class="b-select activated" data-select>
+														<span class="value" data-select-val></span>
+														<select>
+															<option data-sel-empty value="">любой</option>
+															<option value="">Победа</option>
+															<option value="">Победа</option>
+														</select>
+													</span>
+												</div>
+												<div class="field">
+													<label class="label">Тип дома</label>
+													<span class="b-select activated" data-select>
+														<span class="value" data-select-val></span>
+														<select>
+															<option data-sel-empty value="">любой</option>
+															<option value="">Победа</option>
+															<option value="">Победа</option>
+														</select>
+													</span>
+												</div>
+												<div class="field">
+													<label class="label">Материал</label>
+													<span class="b-select activated" data-select>
+														<span class="value" data-select-val></span>
+														<select>
+															<option data-sel-empty value="">любой</option>
+															<option value="">Победа</option>
+															<option value="">Победа</option>
+														</select>
+													</span>
+												</div>
+												<div class="field field-from-to">
+													<label class="label">Этажность</label>
+													<input type="text" class="from" placeholder="от"> <span class="mdash">&mdash;</span> <input type="text" class="to" placeholder="до">
+												</div>
+												<div class="field">
+													<label class="label">Состояние</label>
+													<span class="b-select activated" data-select>
+														<span class="value" data-select-val></span>
+														<select>
+															<option data-sel-empty value="">любой</option>
+															<option value="">Победа</option>
+															<option value="">Победа</option>
+														</select>
+													</span>
+												</div>
+												<div class="field">
+													<label class="checkbox"><input type="checkbox" name=""><span>Эксклюзив</span></label>
+												</div>
+												<div class="field">
+													<label class="checkbox"><input type="checkbox" name=""><span>Срочно</span></label>
+												</div>
+												<div class="field">
+													<label class="checkbox"><input type="checkbox" name=""><span>Только с фото</span></label>
+												</div>
+												<div class="field">
+													<label class="checkbox"><input type="checkbox" name=""><span>Под коммерцию</span></label>
+												</div>
+												<div class="field">
+													<label class="checkbox"><input type="checkbox" name=""><span>Новострой</span></label>
+												</div>
+											</div>
+										</div>
+										<div class="search-control">
+											<div class="extended-search" data-extended-search-link><a class="dot ext">Расширенный поиск</a><a class="dot smp">Простой поиск</a></div>
+											<div class="search-button"><a class="button-submit" data-submit-button>Искать</a></div>
+											<div class="clear-search"><a class="dot" data-from-clear>Очистить</a></div>
+										</div>
+									</div>
+									<div class="house-type-tabs" data-tab-content>
+										2
+									</div>
+									<div class="house-type-tabs" data-tab-content>
+										3
+									</div>
+									<div class="house-type-tabs" data-tab-content>
+										4
+									</div>
+									<div class="house-type-tabs" data-tab-content>
+										5
+									</div>
+									<div class="house-type-tabs" data-tab-content>
+										6
+									</div>
+								</div>
+							</div>
+							<div class="tab-content tab-rent" data-tab-content="">
+								tab2
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="b-search-results">
+					<div class="b-res-head">
+						<div class="count">Объявления 1 — 10</div>
+						<h2 class="title">Найдено 134 объявления</h2>
+						<div class="list sort">
+							<span class="label">сортировать по:</span>   
+							<ul>
+								<li><span class="active">дате</span></li>
+								<li><a href="">цене</a></li>
+								<li><a href="">цене за м2</a></li>
+								<li><a href="">площади</a></li>
+								<li><a href="">состоянию</a></li>
+								<li><a href="">№ объявления</a></li>
+							</ul>
+							</div>
+						<div class="list currency">
+							<span class="label">валюта:</span>
+							<ul>
+								<li><span class="active">$</span></li>
+								<li><a href="">грн</a></li>
+							</ul>
+						</div>
+						<div class="list view">
+							<span class="label">вид: </span>
+							<ul>
+								<li><a href="">список</a></li>
+								<li class="active"><span>таблица</span></li>
+							</ul>
+						</div>
+					</div>
+					<div class="b-res-list-table">
+						<table class="b-res-list-table-table">
+							<thead>
+								<tr>
+									<td><div>№</div></td>
+									<td><div>Фото</div></td>
+									<td><div>Комн.<br/>(изол.)</div></td>
+									<td><div class="place">Расположение</div></td>
+									<td><div>Этаж</div></td>
+									<td><div>Материал</div></td>
+									<td><div>Площадь</div></td>
+									<td><div>Тип дома</div></td>
+									<td><div>Состояние</div></td>
+									<td class="price"><div>Цена</div></td>
+									<td><div>Телефон</div></td>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><div class="id"></i>12352</div></td>
+									<td><div class="photo"> <a href="" class="b-has-photo b-hasno-photo"></a></div></td>
+									<td><div><b>2</b> (<b>2</b>)</div></td>
+									<td><div><div class="b-name"><a class="b-favorite" data-favorite-link></a><a href="">Кирова, верх, выше Гавриленко</a></div></div></td>
+									<td><div><b><span class="par">5</span> <span class="delim">/</span> <span class="par">9</span></b></div></td>
+									<td><div>панель</div></td>
+									<td><div><b><span class="par">4</span> <span class="delim">/</span> <span class="par">30</span> <span class="delim">/</span> <span class="par">9.5</span></b></div></td>
+									<td><div>чешка</div></td>
+									<td><div>без ремонта</div></td>
+									<td><div class="price">$ <b>50 000</b></div></td>
+									<td><div class="phone">(067) 634-04-00</div></td>
+								</tr>
+								<tr>
+									<td><div class="id"><i class="b-exclusive"></i>12352</div></td>
+									<td><div class="photo"> <a href="" class="b-has-photo"></a></div></td>
+									<td><div><b>2</b> (<b>2</b>)</div></td>
+									<td><div><div class="b-name"><a class="b-favorite" data-favorite-link></a><a href="">Кирова, верх, выше Гавриленко</a></div></div></td>
+									<td><div><b><span class="par">5</span> <span class="delim">/</span> <span class="par"></span></b></div></td>
+									<td><div>панель</div></td>
+									<td><div><b><span class="par">4</span> <span class="delim">/</span> <span class="par"></span> <span class="delim">/</span> <span class="par">9.5</span></b></div></td>
+									<td><div>чешка</div></td>
+									<td><div>без ремонта</div></td>
+									<td><div class="price urgent">$ <b>50 000</b></div></td>
+									<td><div class="phone">(067) 634-04-00</div></td>
+								</tr>
+								<tr>
+									<td><div class="id"></i>12352</div></td>
+									<td><div class="photo"> <a href="" class="b-has-photo"></a></div></td>
+									<td><div><b>2</b></div></td>
+									<td><div><div class="b-name"><a class="b-favorite" data-favorite-link></a><a href="">Верх Рабочей, Криворожская, Титова</a></div></div></td>
+									<td><div><b><span class="par">5</span> <span class="delim">/</span> <span class="par">9</span></b></div></td>
+									<td><div>панель</div></td>
+									<td><div><b><span class="par">4</span> <span class="delim">/</span> <span class="par">30</span> <span class="delim">/</span> <span class="par">9.5</span></b></div></td>
+									<td><div>чешка</div></td>
+									<td><div>жилое</div></td>
+									<td><div class="price">$ <b>500 000</b></div></td>
+									<td><div class="phone">(067) 634-04-00</div></td>
+								</tr>
+								<tr>
+									<td><div class="id"><i class="b-exclusive"></i>12352</div></td>
+									<td><div class="photo"> <a href="" class="b-has-photo"></a></div></td>
+									<td><div><b>2</b> (<b>2</b>)</div></td>
+									<td><div><div class="b-name"><a class="b-favorite" data-favorite-link></a><a href="">Кирова, верх, выше Гавриленко</a></div></div></td>
+									<td><div><b><span class="par">5</span> <span class="delim">/</span> <span class="par">9</span></b></div></td>
+									<td><div>панель</div></td>
+									<td><div><b><span class="par">4</span> <span class="delim">/</span> <span class="par">30</span> <span class="delim">/</span> <span class="par">9.5</span></b></div></td>
+									<td><div>чешка</div></td>
+									<td><div>без ремонта</div></td>
+									<td><div class="price">$ <b>50 000</b></div></td>
+									<td><div class="phone">(067) 634-04-00</div></td>
+								</tr>
+								<tr>
+									<td><div class="id"></i>12352</div></td>
+									<td><div class="photo"> <a href="" class="b-has-photo b-hasno-photo"></a></div></td>
+									<td><div><b>2</b> (<b>2</b>)</div></td>
+									<td><div><div class="b-name"><a class="b-favorite" data-favorite-link></a><a href="">Кирова, верх, выше Гавриленко</a></div></div></td>
+									<td><div><b><span class="par">5</span> <span class="delim">/</span> <span class="par">9</span></b></div></td>
+									<td><div>панель</div></td>
+									<td><div><b><span class="par">4</span> <span class="delim">/</span> <span class="par">30</span> <span class="delim">/</span> <span class="par">9.5</span></b></div></td>
+									<td><div>чешка</div></td>
+									<td><div>без ремонта</div></td>
+									<td><div class="price">$ <b>50 000</b></div></td>
+									<td><div class="phone">(067) 634-04-00</div></td>
+								</tr>
+								<tr>
+									<td><div class="id"><i class="b-exclusive"></i>12352</div></td>
+									<td><div class="photo"> <a href="" class="b-has-photo"></a></div></td>
+									<td><div><b>2</b> (<b>2</b>)</div></td>
+									<td><div><div class="b-name"><a class="b-favorite" data-favorite-link></a><a href="">Кирова, верх, выше Гавриленко</a></div></div></td>
+									<td><div><b><span class="par">5</span> <span class="delim">/</span> <span class="par"></span></b></div></td>
+									<td><div>панель</div></td>
+									<td><div><b><span class="par">4</span> <span class="delim">/</span> <span class="par"></span> <span class="delim">/</span> <span class="par">9.5</span></b></div></td>
+									<td><div>чешка</div></td>
+									<td><div>без ремонта</div></td>
+									<td><div class="price urgent">$ <b>50 000</b></div></td>
+									<td><div class="phone">(067) 634-04-00</div></td>
+								</tr>
+								<tr>
+									<td><div class="id"></i>12352</div></td>
+									<td><div class="photo"> <a href="" class="b-has-photo"></a></div></td>
+									<td><div><b>2</b></div></td>
+									<td><div><div class="b-name"><a class="b-favorite" data-favorite-link></a><a href="">Верх Рабочей, Криворожская, Титова</a></div></div></td>
+									<td><div><b><span class="par">5</span> <span class="delim">/</span> <span class="par">9</span></b></div></td>
+									<td><div>панель</div></td>
+									<td><div><b><span class="par">4</span> <span class="delim">/</span> <span class="par">30</span> <span class="delim">/</span> <span class="par">9.5</span></b></div></td>
+									<td><div>чешка</div></td>
+									<td><div>жилое</div></td>
+									<td><div class="price">$ <b>500 000</b></div></td>
+									<td><div class="phone">(067) 634-04-00</div></td>
+								</tr>
+								<tr>
+									<td><div class="id"><i class="b-exclusive"></i>12352</div></td>
+									<td><div class="photo"> <a href="" class="b-has-photo"></a></div></td>
+									<td><div><b>2</b> (<b>2</b>)</div></td>
+									<td><div><div class="b-name"><a class="b-favorite" data-favorite-link></a><a href="">Кирова, верх, выше Гавриленко</a></div></div></td>
+									<td><div><b><span class="par">5</span> <span class="delim">/</span> <span class="par">9</span></b></div></td>
+									<td><div>панель</div></td>
+									<td><div><b><span class="par">4</span> <span class="delim">/</span> <span class="par">30</span> <span class="delim">/</span> <span class="par">9.5</span></b></div></td>
+									<td><div>чешка</div></td>
+									<td><div>без ремонта</div></td>
+									<td><div class="price">$ <b>50 000</b></div></td>
+									<td><div class="phone">(067) 634-04-00</div></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="b-pagination">
+						<div class="page">
+							<span class="text">Страница: </span> 
+							<ul>
+								<li class="active"><a>1</a></li>
+								<li><a href="">2</a></li>
+								<li><a href="">3</a></li>
+								<li><a href="">4</a></li>
+								<li><a href="">5</a></li>
+								<li>...</li>
+								<li><a href="">14</a></li>
+							</ul>
+						</div>
+						<div class="page-count">
+							<span class="text">На странице: </span> 
+							<ul>
+								<li class="active"><a>10</a></li>
+								<li><a href="">20</a></li>
+								<li><a href="">30</a></li>
+							</ul>
+							<span class="text">объявлений </span></div>
+						<div class="prev-next">
+							<a href="" class="prev disabled">назад</a> <span class="delim">|</span> <a href="" class="next">вперед</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="b-footer">
+			<div class="main">
+				<div class="b-logo-col">
+					<div class="main-links">
+						<a href="" class="i-home"></a>
+						<a href="" class="i-map"></a>
+						<a href="" class="i-contact"></a>
+					</div>
+					<a href="" class="logo"></a>
+					<div class="copy">© 2007–2013</div>
+				</div>
+				<div class="b-nav-col">
+					<ul>
+						<li><a href="">Об агентстве</a></li>
+						<li><a href="">Услуги</a></li>
+						<li><a href="">Риэлторы</a></li>
+						<li><a href="">Вакансии</a></li>
+						<li><a href="">Контакты</a></li>
+					</ul>			
+				</div>
+				<div class="b-cont-col">
+					<div>+38 (056) 7-355-355</div>
+					<div>+38 (067) 63-40-400</div>
+					<div>+38 (093) 742-40-40</div>
+					<div>+38 (050) 363-17-15</div>
+					<div><a href="mailto:info@2b.ua">email: info@2b.ua</a></div>
+				</div>
+				<div class="b-links-col">
+					<ul>
+						<li><a href="">Продажа квартир в Днепропетровске</a></li>
+						<li><a href="">Аренда квартир, домов</a></li>
+						<li><a href="">Продажа коммерческой недвижимости</a></li>
+						<li><a href="">Аренда коммерческой недвижимости</a></li>
+						<li><a href="">Продажа земли</a></li>
+					</ul>
+				</div>
+				<div class="b-fresh">
+					<div class="fresh-logo"><a href=""></a></div>
+					<div class="fresh-text">Разрабокта дизайна сайта — <a href="">студия «Fresh»</a></div>
+					<div class="fresh-link"><a href="">Информация о сайте</a></div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
