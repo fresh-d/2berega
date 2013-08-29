@@ -269,6 +269,17 @@ select.empty,
 .b-multiselect-toolbar .toolbar-button{display: block; cursor: pointer;}
 .b-multiselect-toolbar .apply{color: #006699;  float: left;}
 .b-multiselect-toolbar .clear{color: #797979; float: right;}
+
+/*group multiselect*/
+.b-select.multi-select.group{}
+.b-select.multi-select.group .scroll{}
+.b-select.multi-select.group .parent span{font-weight: bold;}
+.b-select.multi-select.group .group-wrapper{}
+.b-select.multi-select.group .group-wrapper label{padding: 3px 8px 3px 16px}
+.b-select.multi-select.group .group-wrapper label.parent{padding: 4px 8px}
+/*end group multiselect*/
+
+
 /* end multiselect mod*/
 
 /*checkbox*/
@@ -291,6 +302,8 @@ select.empty,
 	background: url(../i/sprite.png) no-repeat -622px -72px;
 	border: none;
 	box-shadow: 0 0 0 transparent;
+	left: 8px;
+	top: 0px;
 }
 
 .b-select.multi-select label input[type=checkbox]:checked+span:before{
@@ -301,6 +314,8 @@ select.empty,
 	background: url(../i/sprite.png) no-repeat -644px -72px;
 	border: none;
 	box-shadow: 0 0 0 transparent;
+	left: 8px;
+	top: 0px;
 }
 /*end checkbox*/
 
@@ -1735,8 +1750,8 @@ input[type=checkbox]:not(.default)+span:before{
 
 /*#modificators#*/
 table.b-gradient_overflow{}
-table.b-gradient_overflow td.overflow{
-	max-width: 56px;
+table.b-gradient_overflow .overflow{
+	max-width: 71px;
 	position: relative;
 }
 table.b-gradient_overflow .overflow>div{
@@ -1748,8 +1763,8 @@ table.b-gradient_overflow .overflow>div:hover{
 	position: absolute;
 	background: #fff !important;
 	padding: 2px 7px;
-	top: 0;
-	left: 0;
+	top: -1px;
+	left: 1px;
 	z-index:2;
 	cursor: default;
 
@@ -1807,7 +1822,7 @@ table.b-gradient_overflow tr:nth-child(2n) .overflow>div:not(:hover):after{
 	);
 }
 
-table.b-gradient_overflow tr:hover .overflow:not(:hover)>div:after{
+table.b-gradient_overflow tr:hover .overflow:not(:hover):after{
 	width: 30px;
 	height: 33px;
 	content: ' ';

@@ -12,6 +12,7 @@
 		<script src="./js/mwheelIntent.js" type="text/javascript"></script>
 		<script src="./js/jquery.jscrollpane.js" type="text/javascript"></script>
 		<script src="./js/jquery.multiselect.js" type="text/javascript"></script>
+		<script src="./js/jquery.groupmultiselect.js" type="text/javascript"></script>
 		<script src="./js/app.js" type="text/javascript"></script>
 	</head>
 	<body>
@@ -107,20 +108,30 @@
 											<div class="base-params">
 												<div class="field">
 													<label class="label">Район</label>
-													<div class="b-select multi-select empty" data-multi-select>
+													<div class="b-select multi-select group empty" data-group-multi-select>
 														<span class="value" data-val data-add data-default="любой">любой</span>
 														<div class="select-list active" data-list>
 															<div data-scroll class="scroll">
-																<label><input type="checkbox" value="Правда"><span>Правда</span></label>
-																<label><input type="checkbox" value="Рабочая"><span>Рабочая</span></label>
-																<label><input type="checkbox" value="Тополь"><span>Тополь</span></label>
-																<label><input type="checkbox" value="Кирова"><span>Кирова</span></label>
-																<label><input type="checkbox" value="Центр"><span>Центр</span></label>
-																<label><input type="checkbox" value="Левобережный"><span>Левобережный</span></label>
-																<label><input type="checkbox" value="Клочко"><span>Клочко</span></label>
-																<label><input type="checkbox" value="Сокол"><span>Сокол</span></label>
-																<label><input type="checkbox" value="Фрунзенский"><span>Фрунзенский</span></label>
-																<label><input type="checkbox" value="Западный"><span>Западный ж/м</span></label>
+
+																<div class="group-wrapper" data-group>
+																	<label class="parent"><input type="checkbox" value="Правда" data-parent><span>Правда</span></label>
+																	<label><input type="checkbox" value="Начало правды"><span>Начало правды</span></label>
+																	<label><input type="checkbox" value="Правда/Калиновая"><span>Правда/Калиновая</span></label>
+																	<label><input type="checkbox" value="Правда/Воронцова"><span>Правда/Воронцова</span></label>
+																</div>
+
+																<div class="group-wrapper" data-group>
+																	<label class="parent"><input type="checkbox" value="Кирова" data-parent><span>Кирова</span></label>
+																	<label><input type="checkbox" value="Верх Кирова"><span>Верх Кирова</span></label>
+																	<label><input type="checkbox" value="Низ Кирова"><span>Низ Кирова</span></label>
+																</div>
+																
+																<div class="group-wrapper" data-group>
+																	<label class="parent"><input type="checkbox" value="Правда" data-parent><span>Правда</span></label>
+																	<label><input type="checkbox" value="Начало правды"><span>Начало правды</span></label>
+																	<label><input type="checkbox" value="Правда/Калиновая"><span>Правда/Калиновая</span></label>
+																	<label><input type="checkbox" value="Правда/Воронцова"><span>Правда/Воронцова</span></label>
+																</div>
 															</div>
 															<div class="b-multiselect-toolbar">
 																<div class="toolbar-button apply" data-apply>Применить</div>

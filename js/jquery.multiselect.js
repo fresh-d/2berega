@@ -24,7 +24,7 @@ $.fn.multiselect = function(options){
 	self.debug = false;
 
 	var __construct = function(options){
-		$.extend(self, options, true)
+		$.extend(self, options, true);
 
 		for(var _item in self.elements){
 			if($.isEmptyObject(self.elements[_item])){
@@ -66,6 +66,14 @@ $.fn.multiselect = function(options){
 				self.elements.list.toggleClass('active');
 			}
 		},
+		status:{
+			empty: function(){
+				self.addClass('empty').removeClass('activated');
+			},
+			active: function(){
+				self.addClass('activated').removeClass('empty');
+			}
+		},
 		inputChange : function(){
 			var el = $(this);
 			
@@ -96,14 +104,14 @@ $.fn.multiselect = function(options){
 
 			self.actions.list.close();
 
-			self.addClass('empty').removeClass('activated');
+			self.actions.status.empty();
 		},
 		apply: function(){
 			for(var i=0; i < self.elements.inputs.length; i++){
 				var el = $(self.elements.inputs[i]);
 				if(el.is(':checked')){
 					self.elements.val.text(el.val());
-					self.addClass('activated').removeClass('empty');
+					self.actions.status.active();
 					break;
 				}
 			}

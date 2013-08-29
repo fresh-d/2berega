@@ -252,7 +252,8 @@ $(function() {
 		var td  = $(this).find('td:eq(5), td:eq(7), td:eq(8)');
 		td.each(function(){
 			if($(this).find('div').width() >= 74){
-				$(this).addClass('overflow');
+				var s_text = $(this).find('div').text();
+				$(this).find('div').addClass('overflow').html($('<div>').text(s_text));
 			}
 		});
 	});
@@ -263,6 +264,14 @@ $(function() {
 
 		el.find('[data-scroll]').jScrollPane();
 		el.multiselect({/*debug: true*/});
+	});
+
+	/*group-multiselect*/
+	$('[data-group-multi-select]').each(function(){
+		var el = $(this);
+
+		el.find('[data-scroll]').jScrollPane();
+		el.groupmultiselect({debug: true});
 	});
 
 
