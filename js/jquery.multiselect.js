@@ -107,14 +107,16 @@ $.fn.multiselect = function(options){
 			self.actions.status.empty();
 		},
 		apply: function(){
+			var count=0;
 			for(var i=0; i < self.elements.inputs.length; i++){
 				var el = $(self.elements.inputs[i]);
 				if(el.is(':checked')){
+				    count++;
 					self.elements.val.text(el.val());
 					self.actions.status.active();
-					break;
 				}
 			}
+			if (count>1) self.elements.val.text('Выбрано '+count+' эл.');
 			self.actions.list.close();
 		}
 	}

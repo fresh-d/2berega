@@ -2127,8 +2127,8 @@ table.b-gradient_overflow tr:hover .overflow:not(:hover):after{
 	margin-bottom: 8px;
 }
 
-.b-same-list .b-photo a{
-	display: block;
+.b-same-list .b-photo a, .b-search-results .b-photo.multi a {
+	display: block !important;
 	border: 0;
 }
 
