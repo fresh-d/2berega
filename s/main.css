@@ -1225,8 +1225,8 @@ input[type=checkbox]:not(.default)+span:before{
 
 .b-search-results .b-res-el .b-photo .photo:hover:before,
 .b-photo-border:hover:before{
-	opacity: 1;
-	filter:alpha(opacity=100);
+	/*opacity: 1;
+	filter:alpha(opacity=100); */
 	border: 1px solid #008dd3;
 	box-shadow:0 0 0 1px #ffffff inset;
 
@@ -2100,6 +2100,10 @@ table.b-gradient_overflow tr:hover .overflow:not(:hover):after{
 .b-view-page .b-realtor .info{
 	font-size: 12px;
 	color: #797979;
+}
+
+.b-view-page .b-realtor .info b{
+	color: #000;
 }
 
 .b-view-page .b-realtor .info p{

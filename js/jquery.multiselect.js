@@ -114,7 +114,8 @@ $.fn.multiselect = function(options){
 		//Collapse multiselect if click detected elsewhere
 		documentClick: function(){
 			var el = $(this);
-			self.actions.list.close();
+			//self.actions.list.close();
+			self.actions.apply();
 		},
 		selfClick: function(e){
 			e.stopPropagation();

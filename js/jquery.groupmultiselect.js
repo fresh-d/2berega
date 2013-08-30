@@ -103,7 +103,8 @@ $.fn.groupmultiselect = function(options){
 		//Collapse multiselect if click detected elsewhere
 		documentClick: function(){
 			var el = $(this);
-			self.actions.list.close();
+			//self.actions.list.close();
+			self.actions.apply();
 		},
 		selfClick: function(e){
 			e.stopPropagation();
@@ -188,7 +189,7 @@ $.fn.groupmultiselect = function(options){
 			for(var i=0; i < self.elements.inputs.length; i++){
 				var el = $(self.elements.inputs[i]);
 				if(el.is(':checked')){
-					count++;
+					if (el.parent().attr("class")!='parent') count++;
 					self.elements.val.text(el.val());
 					self.actions.status.active();
 				}

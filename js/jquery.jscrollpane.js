@@ -1428,7 +1428,7 @@
 		hijackInternalLinks			: false,
 		verticalGutter				: 4,
 		horizontalGutter			: 4,
-		mouseWheelSpeed				: 3,
+		mouseWheelSpeed				: 11,
 		arrowButtonSpeed			: 0,
 		arrowRepeatFreq				: 50,
 		arrowScrollOnHover			: false,
