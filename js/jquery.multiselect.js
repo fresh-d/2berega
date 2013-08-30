@@ -92,13 +92,25 @@ $.fn.multiselect = function(options){
 	self.actions ={
 		list:{
 			open: function(){
+				//close other opened multiselect list
+				var o_lists = $('[data-list]');
+				o_lists.each(function(){
+					var el = $(this);
+					if(el.hasClass('active')){
+						el.find('[data-apply]').click();
+					}
+				});
 				self.elements.list.addClass('active');
 			},
 			close: function(){
 				self.elements.list.removeClass('active');
 			},
 			toggle: function(){
-				self.elements.list.toggleClass('active');
+				if(self.elements.list.hasClass('active')){
+					self.actions.list.close();
+				}else{
+					self.actions.list.open();
+				}
 			}
 		},
 
