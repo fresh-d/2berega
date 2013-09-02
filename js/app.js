@@ -272,7 +272,9 @@ $(function() {
 	tr.each(function(){
 		var td  = $(this).find('td:eq(5), td:eq(7), td:eq(8)');
 		td.each(function(){
-			if($(this).find('div').width() >= 74){
+			var i_width = parseInt($(this).css('max-width')) || 74;
+			//console.log($(this).find('div').width() +'>='+ i_width);
+			if($(this).find('div').width() >= i_width){
 				var s_text = $(this).find('div').text();
 				$(this).find('div').addClass('overflow').html($('<div>').text(s_text));
 			}

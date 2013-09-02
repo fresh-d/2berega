@@ -1649,7 +1649,16 @@ input[type=checkbox]:not(.default)+span:before{
 	padding-left: 22px;
 }
 
-
+.b-search-results .b-res-list-table-table tbody tr:nth-child(2n) td:nth-child(9) ,
+.b-search-results .b-res-list-table-table tbody tr:nth-child(2n) td:nth-child(8) ,
+.b-search-results .b-res-list-table-table tbody tr:nth-child(2n) td:nth-child(6) {
+	background-color: #f7f8f9;
+}
+.b-search-results .b-res-list-table-table tbody tr:hover td:nth-child(9),
+.b-search-results .b-res-list-table-table tbody tr:hover td:nth-child(8),
+.b-search-results .b-res-list-table-table tbody tr:hover td:nth-child(6) {
+	background-color: #eaf4fb;
+}
 .b-search-results .b-res-list-table-table tbody td .b-name{
 	max-width:250px;
 	overflow: hidden;
@@ -1663,11 +1672,13 @@ input[type=checkbox]:not(.default)+span:before{
 }
 
 
+.b-search-results .b-res-list-table-table tbody td>div:not(.overflow){
+	border-left:2px solid #f5f7f9;
+	border-right:2px solid #ffffff;
+}
 .b-search-results .b-res-list-table-table tbody td>div{
 	padding: 2px 7px;
 	border: 0;
-	border-left:2px solid #f5f7f9;
-	border-right:2px solid #ffffff;
 	height: 31px;
 	line-height: 31px;
 	border-top: 1px solid transparent;
@@ -1754,8 +1765,11 @@ input[type=checkbox]:not(.default)+span:before{
 
 /*#modificators#*/
 table.b-gradient_overflow{}
+.b-search-results .b-res-list-table-table tbody tr td:nth-child(9) .overflow{
+	max-width: 76px;
+}
 table.b-gradient_overflow .overflow{
-	max-width: 71px;
+	max-width: 56px;
 	position: relative;
 }
 table.b-gradient_overflow .overflow>div{
@@ -1772,7 +1786,7 @@ table.b-gradient_overflow .overflow>div:hover{
 	z-index:2;
 	cursor: default;
 
-		border-top: 1px solid #e1e9ee;
+	border-top: 1px solid #e1e9ee;
 	border-bottom: 1px solid #e1e9ee;
 }
 
@@ -1785,7 +1799,6 @@ table.b-gradient_overflow tr:nth-child(2n-1) .overflow>div:not(:hover):after{
 	top: 0;
 
 	/*gradient*/
-
 	background-image: linear-gradient(left ,  rgba(255,255,255, 0) 21%, rgb(255,255,255) 100%);
 	background-image: -o-linear-gradient(left ,  rgba(255,255,255, 0) 21%, rgb(255,255,255) 100%);
 	background-image: -moz-linear-gradient(left ,  rgba(255,255,255, 0) 21%, rgb(255,255,255) 100%);
@@ -1824,6 +1837,7 @@ table.b-gradient_overflow tr:nth-child(2n) .overflow>div:not(:hover):after{
 		color-stop(0.21,  rgba(255,255,255, 0)),
 		color-stop(1, rgb(247, 248, 249))
 	);
+	
 }
 
 table.b-gradient_overflow tr:hover .overflow:not(:hover):after{
@@ -1834,8 +1848,8 @@ table.b-gradient_overflow tr:hover .overflow:not(:hover):after{
 	right:0;
 	top: 0px;
 
-	border-top: 1px solid #e1e9ee;
-	border-bottom: 1px solid #e1e9ee;
+/*	border-top: 1px solid #e1e9ee;
+	border-bottom: 1px solid #e1e9ee;*/
 
 	/*gradient*/
 
@@ -1849,8 +1863,8 @@ table.b-gradient_overflow tr:hover .overflow:not(:hover):after{
 		linear,
 		left top,
 		right top,
-		color-stop(0.21,  rgba(255,255,255, 0)),
-		color-stop(1, rgb(234, 244, 251))
+		color-stop(0.21,  rgba(234, 244, 251, 0.7)),
+		color-stop(1, rgba(234, 244, 251, 1))
 	);
 }
 
