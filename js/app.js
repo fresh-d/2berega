@@ -139,11 +139,14 @@ $(function() {
     var tmpImg = new Image();
     tmpImg.onload = function() {
       $('[data-photo-gallery="photo"]').css("background-image","url("+tmpImg.src+")");
-      $('[data-photo-gallery="wrap"]').fadeIn();
-			getGalleryWidth();
-			//console.log("url("+tmpImg.src+")");
+      $('[data-photo-gallery="wrap"]').fadeIn(null, function(){
+		  	//Включаем слушателя
+			$(document).off('keyup').on('keyup', keyGallery);
+	  });
 
-    } ;
+		getGalleryWidth();
+    };
+		
     tmpImg.src = $(this).attr("href");
 		return false;
 		
@@ -164,7 +167,6 @@ $(function() {
 		
 		return false;
 	});
-	
 	
 	//считаем ширину нижней галереи по кол-ву фоток. ширина фоток стандартная, считается по первому элементу
 	function getGalleryWidth(){
@@ -242,6 +244,9 @@ $(function() {
 	/* кнопка закрыть */
 	$(document).on("click",'[data-photo-gallery="close"]',function(){
 		$('[data-photo-gallery="wrap"]').fadeOut();
+
+		//Отключаем слушателя
+		$(document).off('keyup', keyGallery);
 	});
 	
 	$(document).on("click",'[data-photo-gallery="next"], [data-photo-gallery="prev"]',function(){
@@ -256,9 +261,26 @@ $(function() {
 		else{
 			prev.find("a").click();
 		}
-		
-	
 	});
+
+
+	//Слушаем хоткеи
+	var keyGallery = function (e){
+		switch(e.keyCode){
+			case 27: //Esc
+					$('[data-photo-gallery="close"]').click();
+			break;
+			case 39: //right row
+					$('[data-photo-gallery="next"]').click();
+			break;
+			case 37: //left row
+					$('[data-photo-gallery="prev"]').click();
+			break;
+			default:
+			break;
+		}
+		console.log('lisener');
+	}
 	
 
 	// =================================================================

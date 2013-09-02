@@ -2488,7 +2488,8 @@ table.b-gradient_overflow tr:hover .overflow:not(:hover):after{
 	z-index: 5;
 	text-align: center;
 	width: 870px;
-	margin-left: -435px;
+	/*margin-left: -435px;/*Фото налазит на стрелку*/
+	margin-left: -33%;
 }
 
 .b-photo-gallery .b-gallery-wrap .b-big-photo{
