@@ -163,6 +163,7 @@ $(function() {
 	// =================================================================
 	
 	/* всплывающая фотогалерея */
+	var b_trigger = true;
 	$(document).on("click",'[data-photo-gallery-id]',function(){
 		$(this).parents("ul").find("li").removeClass("active");
 		$(this).parents("li").addClass("active");
@@ -180,7 +181,10 @@ $(function() {
 			$(document).off('keyup').on('keyup', keyGallery);
 	  });
 
-		getGalleryWidth();
+		if(b_trigger){//run once
+			getGalleryWidth();
+			b_trigger = false;
+		}
     };
 		
     tmpImg.src = $(this).attr("href");
@@ -207,23 +211,26 @@ $(function() {
 	//считаем ширину нижней галереи по кол-ву фоток. ширина фоток стандартная, считается по первому элементу
 	function getGalleryWidth(){
 		list=$('[data-photo-gallery="list"]');
-		$(list).find('ul').css("width",$(list).find("li").length*($(list).find("li").eq(0).outerWidth()+parseInt($(list).find("li").eq(0).css("margin-right"))));
-		console.log($(list).find("li").eq(0).html());
-		if (parseInt($(list).find('ul').css("width"))>parseInt($(list).width())) {
+		list.find('ul').css("width",list.find("li").length*(list.find("li").eq(0).outerWidth()+parseInt($(list).find("li").eq(0).css("margin-right"))));
+		//console.log($(list).find("li").eq(0).html());
+		if (parseInt($(list).find('ul').css("width"))>parseInt(list.width())) {
 			$('[data-photo-gallery="list"] [data-photo-gallery="list-next"]').show();
 		}
 		else{
-			$('[data-photo-gallery="list"] [data-photo-gallery="list-next"]').hide();		
+			$('[data-photo-gallery="list"] [data-photo-gallery="list-next"]').hide();
 		}
 		
 	}
 	
 	getGalleryWidth();
-	
+
+	var	i_start = 1,
+			i_end = 8,
+			a_min_max_view = [i_start, i_end];//Содержит диапазон видимых изображений карусели. По-умолчанию видны 0-й и 8-й элементы
 	//двигаем нижний список фоток
 	$(document).on("click",'[data-photo-gallery="list-next"], [data-photo-gallery="list-prev"]',function(){
 		var gallery_scroll_count=3; //кол-во элементов для прокрутки
-		
+
 		isnext = false;
 		isprev = false;
 		//выставляем флаги - какая кнопка нажата
@@ -241,13 +248,32 @@ $(function() {
 		//прокручиваем на заданное кол-во элементов
 		if (isnext) {
 			pos-=gallery_scroll_count*li_width;
+
+			if(
+				list.find('[data-photo-gallery-id]').eq(a_min_max_view[1]+gallery_scroll_count).length
+			){
+				a_min_max_view[1] += gallery_scroll_count;
+				a_min_max_view[0] +=  gallery_scroll_count;
+			}else{
+				a_min_max_view[0] = list.find('[data-photo-gallery-id]').length - i_end;
+				a_min_max_view[1] = list.find('[data-photo-gallery-id]').length;
+			}
 		}
+
 		if (isprev) {
 			pos+=gallery_scroll_count*li_width;
+
+			if(
+				a_min_max_view[0]-gallery_scroll_count > 0
+			){
+				a_min_max_view[0] -=  gallery_scroll_count;
+				a_min_max_view[1] -= gallery_scroll_count;
+			}else{
+				a_min_max_view[0] = i_start;
+				a_min_max_view[1] = i_end;
+			}
 		}
-		
-		//console.log(pos+ul_width, $(list).width());
-		
+
 		//определяем показывать ли кнопки туда/сюда
 		if (pos<0) {
 			$('[data-photo-gallery="list"] [data-photo-gallery="list-prev"]').show();
@@ -255,12 +281,12 @@ $(function() {
 		else {
 			$('[data-photo-gallery="list"] [data-photo-gallery="list-prev"]').hide();
 		}
-		
-		if (pos+ul_width>=$(list).width()) {
-			$('[data-photo-gallery="list"] [data-photo-gallery="list-next"]').show();
+
+		if (pos+ul_width < list.width()) {
+			$('[data-photo-gallery="list"] [data-photo-gallery="list-next"]').hide();
 		}
 		else {
-			$('[data-photo-gallery="list"] [data-photo-gallery="list-next"]').hide();
+			$('[data-photo-gallery="list"] [data-photo-gallery="list-next"]').show();
 		}
 		
 		//если справа/слева при прокрутке появляется дыра, делаем прокрутку на меньшее число элементов
@@ -273,16 +299,9 @@ $(function() {
 		}
 		
 		//делаем сдвиг
-		$(list).find("ul").animate({"margin-left":pos})
+		$(list).find("ul").animate({"margin-left":pos});
 
-	});
-	
-	/* кнопка закрыть */
-	$(document).on("click",'[data-photo-gallery="close"]',function(){
-		$('[data-photo-gallery="wrap"]').fadeOut();
-
-		//Отключаем слушателя
-		$(document).off('keyup', keyGallery);
+		console.log(a_min_max_view);
 	});
 	
 	$(document).on("click",'[data-photo-gallery="next"], [data-photo-gallery="prev"]',function(){
@@ -290,13 +309,35 @@ $(function() {
 		
 		prev=$(list).find("li.active").prev();
 		next=$(list).find("li.active").next();
-		
+
 		if ($(this).attr('data-photo-gallery')=="next") {
 			next.find("a").click();
+			console.log(next.index()+1 +'=='+ list.find('[data-photo-gallery-id]').length);
+
+			//Карусель с превью "догоняет"
+			if(
+					next.index() > a_min_max_view[1] ||
+					next.index()+1 == list.find('[data-photo-gallery-id]').length ||
+					next.index()==-1
+			){
+				$('[data-photo-gallery=list-next]').click();
+			}
 		}
 		else{
 			prev.find("a").click();
+			//Карусель с превью "догоняет"
+			if(prev.index() < a_min_max_view[0]){
+				$('[data-photo-gallery=list-prev]').click();
+			}
 		}
+	});
+
+	/* кнопка закрыть */
+	$(document).on("click",'[data-photo-gallery="close"]',function(){
+		$('[data-photo-gallery="wrap"]').fadeOut();
+
+		//Отключаем слушателя
+		$(document).off('keyup', keyGallery);
 	});
 
 
@@ -315,7 +356,6 @@ $(function() {
 			default:
 			break;
 		}
-		console.log('lisener');
 	}
 	
 
