@@ -19,7 +19,29 @@ function()
     });
 };
 
+//Object contains collection of interactive UI-elements
+var MODEL = {
+	set: function(s_name, data){
+		//Create an empty object
+		if(typeof s_name === 'string' || typeof s_name === 'number'){
+			if(typeof this[s_name] === 'undefined'){
+				this[s_name] = [];
+			}else{
+				//this[s_name].pushStack(data);
+			}
+		}
+
+		//set data
+		this[s_name].push(data);
+	},
+	get: function(s_name){
+		return typeof this[s_name] !== 'undefined' ? this[s_name] : false;
+	}
+};
+
+
 $(function() {
+
 	$(".from,.to,.b-id-search input").ForceNumericOnly();
 	
 	//имитация стандартного плейсхолдера для инпутов и текстовых полей
@@ -80,12 +102,26 @@ $(function() {
 	});
 	
 	$("[data-from-clear]").click(function(){
-		$(".b-search-form input[type=text]").val("");
-		$(".b-search-form input[type=text], .b-search-form .b-select").removeClass("activated");
+		$(".b-search-form input[type=text]:not([data-search-by-number])").val("");
+		$(".b-search-form input[type=text]:not([data-search-by-number]), .b-search-form [data-select] select:not([name=region])").removeClass("activated");
 		$(".b-search-form .b-radio-box li").removeClass("active");
-		$(".b-search-form .b-select [data-sel-empty]").attr("selected","selected");
+		$(".b-search-form [data-select] select:not([name=region]) [data-sel-empty]").attr("selected","selected");
 		$(".b-search-form select").change();
 
+		//clear check-boxes
+		$(".b-search-form input[type=checkbox]").prop('checked', false);
+
+		//clear multiselects
+		var a = MODEL.get('multiselect');
+		for(var item in a){
+			a[item].actions.clear();
+		}
+
+		//clear groupmultiselect
+		var a = MODEL.get('groupmultiselect');
+		for(var item in a){
+			a[item].actions.clear();
+		}
 	});
 
 
@@ -306,13 +342,15 @@ $(function() {
 	/*multiselect*/
 	$('[data-multi-select]').each(function(){
 		var el = $(this);
-		el.multiselect({/*debug: true*/});
+		var o = el.multiselect({/*debug: true*/});
+		MODEL.set('multiselect', o);
 	});
 
 	/*group-multiselect*/
 	$('[data-group-multi-select]').each(function(){
 		var el = $(this);
-		el.groupmultiselect({/*debug: true*/});
+		var o = el.groupmultiselect({/*debug: true*/});
+		MODEL.set('groupmultiselect', o);
 	});
 
 
