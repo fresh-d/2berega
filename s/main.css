@@ -197,7 +197,6 @@ select.empty,
 	line-height: 25px;
 	height: 25px;
 	z-index: 1;
-
 }
 
 .b-select .value:after{
@@ -222,7 +221,8 @@ select.empty,
 	position: relative;
 	height: 26px;
 	margin-top: -1px;
-
+	border: none;
+	overflow:hidden;
 }
 
 /*multiselect mod*/
