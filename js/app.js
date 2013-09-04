@@ -78,17 +78,18 @@ $(function() {
 
 	
 	$("[data-select] select").change(function(){
+		console.log($(this).find("option:selected").html());
 		$(this).parents("[data-select]").find("[data-select-val]").html($(this).find("option:selected").html());
 	});
 
 	
 	$(".b-search-form select").change(function(){
-		$(this).parents(".b-select").addClass("activated");
+		var parent = $(this).parents('[data-select]');
+		parent.addClass("activated");
 		if ($(this).find("option:selected").attr("data-sel-empty")!=undefined) {
-			$(this).parents(".b-select").addClass("empty");
-			}
-		else{
-			$(this).parents(".b-select").removeClass("empty");
+			parent.addClass("empty");
+		}else{
+			parent.removeClass("empty");
 		}
 	});
 
@@ -103,10 +104,17 @@ $(function() {
 	
 	$("[data-from-clear]").click(function(){
 		$(".b-search-form input[type=text]:not([data-search-by-number])").val("");
-		$(".b-search-form input[type=text]:not([data-search-by-number]), .b-search-form [data-select] select:not([name=region])").removeClass("activated");
+		$(".b-search-form input[type=text]:not([data-search-by-number])").removeClass("activated");
 		$(".b-search-form .b-radio-box li").removeClass("active");
-		$(".b-search-form [data-select] select:not([name=region]) [data-sel-empty]").attr("selected","selected");
-		$(".b-search-form select").change();
+
+		//clear select
+		$(".b-search-form [data-select] select:not([name=region])").removeClass("activated");
+		$(".b-search-form [data-select] select:not([name=region])")
+				//firstly remove old selection
+				.find('option').removeAttr("selected").end()
+				//set default options
+				.find('[data-sel-empty]').attr("selected","selected");
+		$(".b-search-form select:not([name=region]").change();
 
 		//clear check-boxes
 		$(".b-search-form input[type=checkbox]").prop('checked', false);

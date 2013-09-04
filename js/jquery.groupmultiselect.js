@@ -55,11 +55,11 @@ $.fn.groupmultiselect = function(options){
 		self.on('click', self.actions.selfClick);
 
 		//Don't scroll window if scrollPane on the bottom position
-		self.hover(
-			self.actions.selfHover,
-			self.actions.selfUnHover
-		);
-
+//		self.hover(
+//			self.actions.selfHover,
+//			self.actions.selfUnHover
+//		);
+ 
 		//some hooks
 		var i_width=self.width();
 		self.elements.inputs.each(function(){
