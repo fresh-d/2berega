@@ -2515,7 +2515,7 @@ table.b-gradient_overflow tr:hover .overflow:not(:hover):after{
 	top: 14px;
 	left: 50%;
 	bottom: 140px;
-	width: 870px;
+	width: 966px;
 	margin-left: -483px;
 }
 
@@ -2552,7 +2552,7 @@ table.b-gradient_overflow tr:hover .overflow:not(:hover):after{
 .b-photo-gallery .b-controls .close{
 	position: absolute;
 	top: 0;
-	right: -115px;
+	right: -15px;
 	width: 25px;
 	padding: 14px;
 	height: 25px;
@@ -2587,7 +2587,7 @@ table.b-gradient_overflow tr:hover .overflow:not(:hover):after{
 .b-photo-gallery .b-controls .prev:after{
 	content: '';
 	position: absolute;
-	left: 14px;
+	left: 0px;
 	top: 50%;
 	border-style: solid;
 	border-color: transparent #ffffff;
@@ -2613,7 +2613,7 @@ table.b-gradient_overflow tr:hover .overflow:not(:hover):after{
 .b-photo-gallery .b-controls .next:after{
 	border-width: 14px 0 14px 25px;
 	left: auto;
-	right: 14px;
+	right: 0px;
 }
 
 .b-photo-gallery .b-slide-controls .next,
@@ -2621,11 +2621,25 @@ table.b-gradient_overflow tr:hover .overflow:not(:hover):after{
 	top: 4px;
 	left: 0;
 	bottom: 4px;
-	background:linear-gradient(to right, rgba(15,23,28,1) 0%,  rgba(15,23,28,0) 100%);
 	z-index: 5;
 	position: absolute;
 	width: 40px;
 	display: none;
+
+	/*background:linear-gradient(to right, rgba(15,23,28,1) 0%,  rgba(15,23,28,0) 100%);*/
+	background-image: linear-gradient(left , rgba(15,23,28,1) 0%, rgba(15,23,28,0) 100%);
+	background-image: -o-linear-gradient(left , rgba(15,23,28,1) 0%, rgba(15,23,28,0) 100%);
+	background-image: -moz-linear-gradient(left , rgba(15,23,28,1) 0%, rgba(15,23,28,0) 100%);
+	background-image: -webkit-linear-gradient(left , rgba(15,23,28,1) 0%, rgba(15,23,28,0) 100%);
+	background-image: -ms-linear-gradient(left , rgba(15,23,28,1) 0%, rgba(15,23,28,0) 100%);
+
+	background-image: -webkit-gradient(
+		linear,
+		left top,
+		right top,
+		color-stop(0, rgba(15,23,28,1)),
+		color-stop(1,  rgba(15,23,28,0))
+	);
 }
 
 .b-photo-gallery .b-slide-controls .next:after,
@@ -2646,7 +2660,21 @@ table.b-gradient_overflow tr:hover .overflow:not(:hover):after{
 .b-photo-gallery .b-slide-controls .next{
 	left: auto;
 	right: 0;
-	background:linear-gradient(to left, rgba(15,23,28,1) 0%,  rgba(15,23,28,0) 100%);
+	/*background: linear-gradient(to left, rgba(15,23,28,1) 0%,  rgba(15,23,28,0) 100%);*/
+
+	background-image: linear-gradient(right , rgba(15,23,28,1) 0%, rgba(15,23,28,0) 100%);
+	background-image: -o-linear-gradient(right , rgba(15,23,28,1) 0%, rgba(15,23,28,0) 100%);
+	background-image: -moz-linear-gradient(right , rgba(15,23,28,1) 0%, rgba(15,23,28,0) 100%);
+	background-image: -webkit-linear-gradient(right , rgba(15,23,28,1) 0%, rgba(15,23,28,0) 100%);
+	background-image: -ms-linear-gradient(right , rgba(15,23,28,1) 0%, rgba(15,23,28,0) 100%);
+
+	background-image: -webkit-gradient(
+		linear,
+		right top,
+		left top,
+		color-stop(0, rgba(15,23,28,1)),
+		color-stop(1,  rgba(15,23,28,0))
+	);
 }
 
 .b-photo-gallery .b-slide-controls .next:after{
