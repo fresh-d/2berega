@@ -1649,6 +1649,11 @@ input[type=checkbox]:not(.default)+span:before{
 	font-weight: bold;
 }
 
+.b-search-results .b-res-list-table-table thead td div{
+height:30px;
+display:table-cell;
+vertical-align: middle;
+}
 .b-search-results .b-res-list-table-table thead td .place{
 	padding-left: 22px;
 }
