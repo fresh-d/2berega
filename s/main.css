@@ -1659,6 +1659,8 @@ input[type=checkbox]:not(.default)+span:before{
 .b-search-results .b-res-list-table-table tbody tr:hover td:nth-child(6) {
 	background-color: #eaf4fb;
 }
+
+.b-search-results .b-res-list-table-table tbody td {}
 .b-search-results .b-res-list-table-table tbody td .b-name{
 	max-width:250px;
 	overflow: hidden;
@@ -1685,6 +1687,9 @@ input[type=checkbox]:not(.default)+span:before{
 	border-top: 1px solid transparent;
 	border-bottom: 1px solid transparent;
 	white-space:nowrap;
+
+	max-width: 125px;
+	overflow: hidden;
 }
 .b-search-results .b-res-list-table-table tbody tr:nth-child(2n) td>div{
 	background-color: #f7f8f9;
