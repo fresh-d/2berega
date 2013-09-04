@@ -2455,7 +2455,7 @@ table.b-gradient_overflow tr:hover .overflow:not(:hover):after{
 
  .b-contacts .phone{}
  .b-contacts .email{}
- .b-contacts .email a{font-size:13px;}
+ .b-realtors-el .b-contacts .email a{font-size:13px;}
 
 .b-room-search .b-clear-favorites{
 	float: right;

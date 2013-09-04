@@ -78,7 +78,6 @@ $(function() {
 
 	
 	$("[data-select] select").change(function(){
-		console.log($(this).find("option:selected").html());
 		$(this).parents("[data-select]").find("[data-select-val]").html($(this).find("option:selected").html());
 	});
 
