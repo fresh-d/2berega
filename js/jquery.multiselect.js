@@ -174,8 +174,6 @@ $.fn.multiselect = function(options){
 				$(this).prop('checked', false);
 			});
 
-			self.actions.list.close();
-
 			self.actions.status.empty();
 		},
 		apply: function(){

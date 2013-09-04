@@ -185,6 +185,9 @@ $(function() {
 			getGalleryWidth();
 			b_trigger = false;
 		}
+		
+		//toggle arrow on left/right sideboard
+		initBigArrows();
     };
 		
     tmpImg.src = $(this).attr("href");
@@ -283,10 +286,10 @@ $(function() {
 		}
 
 		if (pos+ul_width < list.width()) {
-			$('[data-photo-gallery="list"] [data-photo-gallery="list-next"]').hide();
+			$('[data-photo-gallery="list"] [data-photo-gallery="list-next"]').hide();//small arrow
 		}
 		else {
-			$('[data-photo-gallery="list"] [data-photo-gallery="list-next"]').show();
+			$('[data-photo-gallery="list"] [data-photo-gallery="list-next"]').show();//small arrow
 		}
 		
 		//если справа/слева при прокрутке появляется дыра, делаем прокрутку на меньшее число элементов
@@ -300,19 +303,16 @@ $(function() {
 		
 		//делаем сдвиг
 		$(list).find("ul").animate({"margin-left":pos});
-
-		console.log(a_min_max_view);
 	});
 	
 	$(document).on("click",'[data-photo-gallery="next"], [data-photo-gallery="prev"]',function(){
 		list=$('[data-photo-gallery="list"]');
 		
-		prev=$(list).find("li.active").prev();
-		next=$(list).find("li.active").next();
+		prev = list.find("li.active").prev();
+		next = list.find("li.active").next();
 
 		if ($(this).attr('data-photo-gallery')=="next") {
 			next.find("a").click();
-			console.log(next.index()+1 +'=='+ list.find('[data-photo-gallery-id]').length);
 
 			//Карусель с превью "догоняет"
 			if(
@@ -330,7 +330,27 @@ $(function() {
 				$('[data-photo-gallery=list-prev]').click();
 			}
 		}
+
+		//toggle arrow on left/right sideboard
+		initBigArrows();
 	});
+
+	//toggle arrow on left/right sideboard
+	function initBigArrows(){
+		list=$('[data-photo-gallery="list"]');
+
+		if(list.find("li.active").index()+1 == list.find('[data-photo-gallery-id]').length){
+			$('[data-photo-gallery="next"]').hide();
+		}else{
+			$('[data-photo-gallery="next"]').show();
+		}
+
+		if(list.find("li.active").index() == 0){
+			$('[data-photo-gallery="prev"]').hide();
+		}else{
+			$('[data-photo-gallery="prev"]').show();
+		}
+	}
 
 	/* кнопка закрыть */
 	$(document).on("click",'[data-photo-gallery="close"]',function(){

@@ -252,7 +252,7 @@ select.empty,
 
 .b-select.multi-select .select-list label{
 	display: block;
-	padding: 3px 8px;
+	padding: 3px 8px 3px 21px;
 }
 .b-select.multi-select .select-list label:hover{
 	background:#ecf2f4;
@@ -276,8 +276,12 @@ select.empty,
 .b-select.multi-select.group .parent div{font: bold 13px Arial, Tahoma sans-serif; color:#000; }
 .b-select.multi-select.group .parent span{font-weight: bold;}
 .b-select.multi-select.group .group-wrapper{}
-.b-select.multi-select.group .group-wrapper label{padding: 3px 8px 3px 16px}
-.b-select.multi-select.group .group-wrapper .parent{padding: 4px 8px}
+.b-select.multi-select.group .group-wrapper label{padding: 3px 8px 3px 29px;display: block;
+white-space: nowrap;}
+.b-select.multi-select.group .group-wrapper label input[type=checkbox]{
+	display: none;
+}
+.b-select.multi-select.group .group-wrapper .parent{padding: 4px 8px 4px 21px;}
 /*end group multiselect*/
 
 
@@ -285,7 +289,7 @@ select.empty,
 
 /*checkbox*/
 .b-select.multi-select label input[type=checkbox]{
-	opacity: 0;
+	opacity: 0;display: none;
 }
 
 .b-select.multi-select label input[type=checkbox]+span{
@@ -2056,6 +2060,7 @@ table.b-gradient_overflow tr:hover .overflow:not(:hover):after{
 .b-view-page .b-price-sticker {
 	margin-top: 25px;
 	margin-bottom: 20px;
+	float: left;
 }
 
 .b-view-page .b-price-sticker .in{
@@ -2064,9 +2069,8 @@ table.b-gradient_overflow tr:hover .overflow:not(:hover):after{
 
 .b-view-page .price-per-m{
 	display: inline-block;
-	margin: 0 13px;
+	margin: 43px 13px 0;
 	position: relative;
-	top: -5px;
 	color: #797979;
 }
 
