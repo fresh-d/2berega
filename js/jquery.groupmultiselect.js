@@ -68,11 +68,10 @@ $.fn.groupmultiselect = function(options){
 				i_width=cur_width;
 			}
 		});
-self.elements.list.width(i_width);
+		self.elements.list.width(i_width);
+
 		//run scrollPane plugin
 		self.elements.scroll.jScrollPane();
-
-
 
 		self.actions.list.close();
 

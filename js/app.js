@@ -422,7 +422,7 @@ $(function() {
 
 
 	//ScrollPane must be initialize
-	$("[data-extended-params]").hide();
+	//$("[data-extended-params]").hide();
 	
 	
 });

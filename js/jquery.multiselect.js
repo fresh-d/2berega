@@ -77,11 +77,11 @@ $.fn.multiselect = function(options){
 			}
 		});
 
-		//run scrollpane
-		self.elements.scroll.jScrollPane();
-
 		//apply width to container
 		self.elements.list.width(i_width);
+
+		//run scrollpane
+		self.elements.scroll.jScrollPane();
 
 		//close list of multiselect
 		self.actions.list.close();
