@@ -282,6 +282,7 @@ white-space: nowrap;}
 	display: none;
 }
 .b-select.multi-select.group .group-wrapper .parent{padding: 4px 8px 4px 21px;}
+.b-select.multi-select.group .group-wrapper .parent>div{margin: 0 0 0 -5px;}
 /*end group multiselect*/
 
 
